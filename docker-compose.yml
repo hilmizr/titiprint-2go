@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  titiprint-pbkk-fp:
+    container_name: titiprint-pbkk-fp
+    image: dptsi/laravel-web-dev:8.0
+    volumes:
+      - ./src:/var/www/html
+    environment:
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - VIRTUAL_PORT=${VIRTUAL_PORT}
+      - SELF_SIGNED_HOST=${SELF_SIGNED_HOST}
+    dns:
+      - 202.46.129.2
+      - 202.46.129.3
+    networks:
+      - nginx-proxy-network
+
+networks:
+  nginx-proxy-network:
+    external: true
