@@ -13,4 +13,14 @@ class PesanController extends Controller
   {
 
   }
+  
+  public function update()
+  {
+
+  }
+
+  public function updateAction()
+  {
+
+  }
 }
