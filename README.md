@@ -40,3 +40,7 @@ Berikut adalah CDM dan PDM dari Website Titiprint:
 ## CDM
 
 ![CDM_Titiprint](images/CDM_Titiprint.png)
+
+## PDM
+
+![PDM_Titiprint](images/PDM_Titiprint.png)
