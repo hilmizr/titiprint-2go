@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('kode_pembayaran')->primary();
             $table->string('metode_pembayaran', 20);
             $table->string('status_pembayaran', 10)->nullable();
-            $table->uuid('pesanan_id')->nullable();
+            $table->uuid('pesanan_id');
 
             $table->foreign('pesanan_id')->references('pesanan_id')->on('pesanan');
         });

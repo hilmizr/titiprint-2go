@@ -17,9 +17,9 @@ return new class extends Migration
             $table->uuid('file_id')->primary();
             $table->string('format', 5);
             $table->string('ukuran_kertas', 10);
-            $table->string('jenis_kertas', 10)->nullable();
-            $table->tinyInteger('warna')->nullable();
-            $table->integer('jumlah_copy')->nullable();
+            $table->string('jenis_kertas', 10);
+            $table->boolean('is_berwarna');
+            $table->integer('jumlah_copy')->default(1);
             $table->string('keterangan', 255)->nullable();
 
             $table->foreign('file_id')->references('file_id')->on('file');

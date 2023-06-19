@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('level', function (Blueprint $table) {
             $table->uuid('level_id')->primary();
-            $table->string('level_name', 10)->nullable();
-            $table->integer('minimum_spending');
+            $table->string('level_name', 10);
+            $table->integer('min_pengeluaran');
         });
     }
 

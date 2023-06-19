@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('no_pengiriman');
             $table->string('alamat_tujuan', 100);
             $table->string('status_pengiriman', 20)->nullable();
-            $table->uuid('pesanan_id')->nullable();
+            $table->uuid('pesanan_id');
 
             $table->foreign('pesanan_id')->references('pesanan_id')->on('pesanan');
         });

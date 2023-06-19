@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('promo', function (Blueprint $table) {
             $table->uuid('promo_id')->primary();
-            $table->string('promo_name', 20);
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
-            $table->decimal('discount_rate', 4, 2);
-            $table->uuid('level_id')->nullable();
+            $table->string('nama_promo', 20);
+            $table->date('tanggal_mulai')->nullable();
+            $table->date('tanggal_selesai')->nullable();
+            $table->decimal('diskon', 4, 2);
+            $table->uuid('level_id');
 
             $table->foreign('level_id')->references('level_id')->on('level');
         });

@@ -18,10 +18,10 @@ return new class extends Migration
             $table->integer('jumlah_file');
             $table->integer('total_harga');
             $table->string('status_pesanan', 10);
-            $table->tinyInteger('is_dikirim')->nullable();
-            $table->date('tanggal_pesan')->nullable();
-            $table->date('tanggal_selesai')->nullable();
-            $table->uuid('user_id')->nullable();
+            $table->boolean('diambil_cust')->default(0);
+            $table->dateTime('waktu_pesan');
+            $table->dateTime('waktu_selesai')->nullable();
+            $table->uuid('user_id');
 
             $table->foreign('user_id')->references('user_id')->on('user');
         });
