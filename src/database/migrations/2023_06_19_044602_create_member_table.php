@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('total_pengeluaran')->default(0);
 
             $table->foreign('level_id')->references('level_id')->on('level');
-            $table->foreign('user_id')->references('user_id')->on('user');
+            $table->foreign('user_id')->references('user_id')->on('users');
         });
     }
 
