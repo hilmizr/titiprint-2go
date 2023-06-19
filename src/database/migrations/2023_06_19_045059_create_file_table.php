@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('nama_file', 255);
             $table->integer('sub_total_harga');
             $table->uuid('pesanan_id');
-            $table->uuid('user_id');
+            // $table->uuid('user_id');
 
             $table->foreign('pesanan_id')->references('pesanan_id')->on('pesanan');
-            $table->foreign('user_id')->references('user_id')->on('user');
+            // $table->foreign('user_id')->references('user_id')->on('user');
         });
     }
 

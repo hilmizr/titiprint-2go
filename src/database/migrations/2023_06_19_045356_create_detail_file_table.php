@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('detail_file', function (Blueprint $table) {
-            $table->uuid('file_id')->primary();
+            $table->uuid('detail_file_id')->primary();
+            $table->uuid('file_id');
             $table->string('format', 5);
             $table->string('ukuran_kertas', 10);
             $table->string('jenis_kertas', 10);
