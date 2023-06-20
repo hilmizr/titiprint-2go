@@ -15,12 +15,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('user_id')->primary();
-            $table->string('email', 60);
-            $table->string('password', 32);
-            $table->string('nama_user', 60);
-            $table->string('telephone', 15);
-            $table->boolean('is_member');
-            $table->enum('role', ['customer', 'admin']);
+            $table->string('nama_user');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->string('telephone');
+            $table->boolean('is_member')->default(0);
+            $table->string('role')->default('customer');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
