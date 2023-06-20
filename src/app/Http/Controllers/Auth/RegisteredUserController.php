@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Users;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -11,16 +11,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class RegisteredUserController extends Controller
 {
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create(): Response
     {
-        return view('auth.register');
+        return Inertia::render('Auth/Register');
     }
 
     /**
@@ -31,15 +32,21 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'nama_user' => 'required|string|max:60',
+            'email' => 'required|string|email|max:60|unique:users',
+            'password' => 'required|string|max:32',
+            'telephone' => 'required|string|max:15',
+            'is_member' => 'required|boolean',
+            'role' => 'required|in:customer,admin',
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
+        $user = Users::create([
+            'nama_user' => $request->nama_user,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'telephone' => $request->telephone,
+            'is_member' => $request->is_member,
+            'role' => $request->role,
         ]);
 
         event(new Registered($user));

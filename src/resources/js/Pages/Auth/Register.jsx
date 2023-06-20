@@ -8,10 +8,11 @@ import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
+        nama_user: '',
         email: '',
         password: '',
         password_confirmation: '',
+        telephone: '',
     });
 
     useEffect(() => {
@@ -36,12 +37,12 @@ export default function Register() {
 
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
+                    <InputLabel htmlFor="nama_user" value="User Name" />
 
                     <TextInput
-                        id="name"
-                        name="name"
-                        value={data.name}
+                        id="nama_user"
+                        name="nama_user"
+                        value={data.nama_user}
                         className="mt-1 block w-full"
                         autoComplete="name"
                         isFocused={true}
@@ -49,7 +50,7 @@ export default function Register() {
                         required
                     />
 
-                    <InputError message={errors.name} className="mt-2" />
+                    <InputError message={errors.nama_user} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
@@ -67,6 +68,23 @@ export default function Register() {
                     />
 
                     <InputError message={errors.email} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="telephone" value="Telephone" />
+
+                    <TextInput
+                        id="telephone"
+                        type="tel"
+                        name="telephone"
+                        value={data.telephone}
+                        className="mt-1 block w-full"
+                        autoComplete="tel"
+                        onChange={handleOnChange}
+                        required
+                    />
+
+                    <InputError message={errors.telephone} className="mt-2" />
                 </div>
 
                 <div className="mt-4">
@@ -106,7 +124,7 @@ export default function Register() {
                 <div className="flex items-center justify-end mt-4">
                     <Link
                         href={route('login')}
-                        className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                        className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Already registered?
                     </Link>
