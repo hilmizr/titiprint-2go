@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('level', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
             $table->uuid('level_id')->primary();
             $table->string('level_name', 10);
             $table->integer('min_pengeluaran');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('level');
+        Schema::dropIfExists('levels');
     }
 };

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_file', function (Blueprint $table) {
+        Schema::create('detail_files', function (Blueprint $table) {
             $table->uuid('detail_file_id')->primary();
             $table->uuid('file_id');
             $table->string('format', 5);
@@ -22,8 +22,9 @@ return new class extends Migration
             $table->boolean('is_berwarna');
             $table->integer('jumlah_copy')->default(1);
             $table->string('keterangan', 255)->nullable();
+            $table->timestamps();
 
-            $table->foreign('file_id')->references('file_id')->on('file');
+            $table->foreign('file_id')->references('file_id')->on('files');
         });
     }
 
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_file');
+        Schema::dropIfExists('detail_files');
     }
 };

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pesanan', function (Blueprint $table) {
+        Schema::create('pesanans', function (Blueprint $table) {
             $table->uuid('pesanan_id')->primary();
             $table->integer('jumlah_file');
             $table->integer('total_harga');
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->dateTime('waktu_pesan');
             $table->dateTime('waktu_selesai')->nullable();
             $table->uuid('user_id');
+            $table->timestamps();
 
             $table->foreign('user_id')->references('user_id')->on('users');
         });
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pesanan');
+        Schema::dropIfExists('pesanans');
     }
 };
