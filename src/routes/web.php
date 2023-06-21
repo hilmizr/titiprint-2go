@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 /*
@@ -17,6 +18,10 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('dashboard');
+    }
+
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -25,6 +30,15 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('dashboard');
+    }
+
+    return redirect()->route('login');
+});
+
+
 // Route::get('/', function () {
 //     return Inertia::render('Homepage', [
 //         'title' => 'Titiprint',
@@ -32,6 +46,12 @@ Route::get('/', function () {
 //     ]);
 // });
 
+// Route::get('/home', function () {
+//     return Inertia::render('Homepage', [
+//         'title' => 'Titiprint',
+//         'description' => 'Selamat datang di Titiprint'
+//     ]);
+// })->middleware(['auth', 'verified'])->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
