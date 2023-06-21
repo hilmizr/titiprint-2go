@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/pesan/riwayat', [PesananController::class, 'index'])->name('pesan');
     Route::get('/pesan/create', [PesananController::class, 'create'])->name('pesan.create');
     Route::post('/pesan', [PesananController::class, 'store'])->name('pesan.store');
 });
