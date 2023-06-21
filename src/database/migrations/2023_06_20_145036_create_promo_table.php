@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('promo', function (Blueprint $table) {
+        Schema::create('promos', function (Blueprint $table) {
             $table->uuid('promo_id')->primary();
             $table->string('nama_promo', 20);
             $table->date('tanggal_mulai')->nullable();
             $table->date('tanggal_selesai')->nullable();
             $table->decimal('diskon', 4, 2);
             $table->uuid('level_id');
+            $table->timestamps();
 
-            $table->foreign('level_id')->references('level_id')->on('level');
+            $table->foreign('level_id')->references('level_id')->on('levels');
         });
     }
 
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promo');
+        Schema::dropIfExists('promos');
     }
 };

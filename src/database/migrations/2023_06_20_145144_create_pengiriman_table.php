@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pengiriman', function (Blueprint $table) {
+        Schema::create('pengirimans', function (Blueprint $table) {
             $table->uuid('pengiriman_id')->primary();
             $table->integer('no_pengiriman');
             $table->string('alamat_tujuan', 100);
             $table->string('status_pengiriman', 20)->nullable();
             $table->uuid('pesanan_id');
+            $table->timestamps();
 
-            $table->foreign('pesanan_id')->references('pesanan_id')->on('pesanan');
+            $table->foreign('pesanan_id')->references('pesanan_id')->on('pesanans');
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengiriman');
+        Schema::dropIfExists('pengirimans');
     }
 };
