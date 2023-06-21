@@ -47,8 +47,8 @@ export default function UpdateProfileInformation({
                     <TextInput
                         id="name"
                         className="mt-1 block w-full text-pink-600"
-                        value={data.name}
-                        onChange={(e) => setData("name", e.target.value)}
+                        value={data.nama_user}
+                        onChange={(e) => setData("nama_user", e.target.value)}
                         required
                         isFocused
                         autoComplete="name"
