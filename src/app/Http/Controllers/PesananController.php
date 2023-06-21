@@ -20,9 +20,24 @@ class PesananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() : Response
     {
-        // return Inertia::render('Pesanan/Pesan');
+        // $pesanans = DB::table('pesanans')->get();
+        $pesanans = Pesanan::all();
+        return Inertia::render('Pesanan/Riwayat', [
+            // 'title' => 'Riwayat Pesanan'
+
+            // 'pesanan_id' => $pesanans->pesanan_id,
+            // 'jumlah_file' => $pesanans->jumlah_file,
+            // 'total_harga' => $pesanans->total_harga,
+            // 'status_pesanan' => $pesanans->status_pesanan,
+            // 'diambil_cust' => $pesanans->diambil_cust,
+            // 'waktu_pesan' => $pesanans->waktu_pesan,
+            // 'waktu_selesai' => $pesanans->waktu_selesai,
+
+            'pesanans' => $pesanans,
+        ]);
+
     }
 
     /**
