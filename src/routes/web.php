@@ -46,12 +46,13 @@ Route::get('/', function () {
 //     ]);
 // });
 
-// Route::get('/home', function () {
-//     return Inertia::render('Homepage', [
-//         'title' => 'Titiprint',
-//         'description' => 'Selamat datang di Titiprint'
-//     ]);
-// })->middleware(['auth', 'verified'])->name('home');
+Route::get('/home', function () {
+    return Inertia::render('Homepage', [
+        'title' => 'Titiprint',
+        'description' => 'Selamat datang di Titiprint'
+    ]);
+});
+// ->middleware(['auth', 'verified'])->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -62,5 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 require __DIR__.'/auth.php';

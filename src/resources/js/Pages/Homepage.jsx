@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Head } from '@inertiajs/react';
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 export default function Homepage(props) {
     console.log(props)
