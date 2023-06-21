@@ -8,7 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Str;
 
-class File extends Authenticatable
+use Illuminate\Database\Eloquent\Model;
+
+class File extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -42,9 +44,23 @@ class File extends Authenticatable
         'file_id',
         'nama_file',
         'sub_total_harga',
-        'pesanan_id'
+        'pesanan_id',
     ];
+    
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array<string>
+     */
+    // protected $hidden = [
+    //     'pesanan_id',
+    // ];
 
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
     protected static function boot()
     {
         parent::boot();
