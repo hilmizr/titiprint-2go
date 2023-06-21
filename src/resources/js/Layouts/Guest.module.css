@@ -1,0 +1,30 @@
+.logo-text {
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+}
+
+.application-logo {
+    fill: currentColor;
+}
+
+.guest-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    background-color: #010b19;
+}
+
+.guest-content {
+    width: 100%;
+    max-width: 20rem;
+    margin-top: 6rem;
+    padding: 1.5rem;
+    background-color: #010b19;
+    outline: 4px solid #ff4785;
+    box-shadow: 0 0 0 4px #ff4785;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
