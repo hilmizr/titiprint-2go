@@ -47,12 +47,13 @@ Route::get('/', function () {
 //     ]);
 // });
 
-// Route::get('/home', function () {
-//     return Inertia::render('Homepage', [
-//         'title' => 'Titiprint',
-//         'description' => 'Selamat datang di Titiprint'
-//     ]);
-// })->middleware(['auth', 'verified'])->name('home');
+Route::get('/home', function () {
+    return Inertia::render('Homepage', [
+        'title' => 'Titiprint',
+        'description' => 'Selamat datang di Titiprint'
+    ]);
+});
+// ->middleware(['auth', 'verified'])->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -66,6 +67,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/pesan/riwayat', [PesananController::class, 'index'])->name('pesan');
     Route::get('/pesan/create', [PesananController::class, 'create'])->name('pesan.create');
     Route::post('/pesan', [PesananController::class, 'store'])->name('pesan.store');
+});
+
+Route::get('/bayar', function () {
+    return Inertia::render('bayar');
+})->middleware(['auth'])->name('bayar');
+
+Route::get('/membayar', function () {
+    return Inertia::render('membayar');
+});
+
+Route::get('/pesan', function () {
+    return Inertia::render('Pesan');
 });
 
 require __DIR__.'/auth.php';

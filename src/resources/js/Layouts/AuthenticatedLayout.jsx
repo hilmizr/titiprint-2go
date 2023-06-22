@@ -45,7 +45,7 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route("pesan")}>
                                     Cek Pesanan
                                 </NavLink>
-                                <NavLink href="#">Informasi Pembayaran</NavLink>
+                                <NavLink href={route("bayar")}>Informasi Pembayaran</NavLink>
                             </div>
                             <div className="ml-3 relative">
                                 <Dropdown>
