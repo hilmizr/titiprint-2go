@@ -4,17 +4,9 @@ import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Link, useForm, usePage } from "@inertiajs/react";
-import { Transition } from "@headlessui/react";
 import { Head } from "@inertiajs/react";
 
 export default function Pesan({ auth }) {
-    // const file = usePage().props.auth.file;
-
-    // const { data, setData, post, errors, processing, recentlySuccessful } =
-    //     useForm({
-    //         nama_file: file.nama_file,
-    //     });
-
     const { data, setData, post, processing, errors, reset } = useForm({
         nama_file: "",
         format: "",
@@ -51,7 +43,6 @@ export default function Pesan({ auth }) {
         >
             <Head title="Pesan - Titiprint" />
 
-            {/* <div className="py-5 w-10/12 pl-9"> */}
             <div className="py-5">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                     <div className="p-4 sm:p-8 lg:pt-2 bg-neutral-800 outline outline-4 outline-pink-700 shadow sm:rounded-lg">
@@ -80,16 +71,6 @@ export default function Pesan({ auth }) {
                                     value={data.nama_file}
                                     onChange={handleOnChange}
                                 />
-                                {/* <TextInput
-                                    id="nama_file"
-                                    name="nama_file"
-                                    className="mt-1 block w-full text-pink-600"
-                                    // required
-                                    value={data.nama_file}
-                                    onChange={handleOnChange}
-                                    isFocused
-                                    autoComplete="nama_file"
-                                /> */}
                                 <InputError className="mt-2" />
                             </div>
 
@@ -186,33 +167,6 @@ export default function Pesan({ auth }) {
                                         value="Tinta"
                                         className="text-neutral-100"
                                     />
-                                    {/* <input
-                                        type="radio"
-                                        id="berwarna"
-                                        name="tinta"
-                                        value="berwarna"
-                                    />
-                                    <label
-                                        for="berwarna"
-                                        className="text-white text-lg"
-                                    >
-                                        &nbsp; Berwarna
-                                    </label>
-                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                    <input
-                                        type="radio"
-                                        id="hitam_putih"
-                                        name="tinta"
-                                        value="hitam_putih"
-                                    />
-                                    <label
-                                        for="hitam_putih"
-                                        className="text-white text-lg"
-                                    >
-                                        &nbsp; Hitam Putih
-                                    </label>
-                                    <br></br> */}
-
                                     <select
                                         value={data.is_berwarna}
                                         onChange={handleOnChange}
@@ -240,11 +194,9 @@ export default function Pesan({ auth }) {
                                         id="keterangan"
                                         name="keterangan"
                                         className="mt-1 block w-full text-pink-600"
-                                        // required
                                         value={data.keterangan}
                                         onChange={handleOnChange}
                                         isFocused
-                                        // autoComplete="keterangan"
                                     />
                                 </div>
                             </div>
