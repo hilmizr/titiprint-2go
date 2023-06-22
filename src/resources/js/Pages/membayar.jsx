@@ -14,22 +14,6 @@ export default function Membayar({auth}) {
 
         post(route(""));
     };
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
-import PrimaryButton from "@/Components/PrimaryButton";
-import TextInput from "@/Components/TextInput";
-import { Link, useForm, usePage } from "@inertiajs/react";
-import { Transition } from "@headlessui/react";
-import { Head } from "@inertiajs/react";
-
-export default function Membayar({auth}) {
-
-    const submit = (e) => {
-        e.preventDefault();
-
-        post(route(""));
-    };
 
     return (
         <AuthenticatedLayout
