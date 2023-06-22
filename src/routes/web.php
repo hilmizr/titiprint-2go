@@ -76,10 +76,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/membayar', function () {
         return Inertia::render('membayar');
     });
-    
-    Route::get('/pesan', function () {
-        return Inertia::render('Pesan');
-    });
 });
 
 require __DIR__.'/auth.php';

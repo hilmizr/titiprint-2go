@@ -70,17 +70,6 @@ class PesananController extends Controller
         $total_harga = $jumlah_file * $sub_total_harga;
         $waktu_pesan = new DateTime('now');
 
-        // DB::table('pesanan')->insert([
-
-        // ]);
-
-        // DB::table('file')->insert([
-        //     'file_id' => Uuid::uuid4()->toString(),
-        //     'nama_file' => $request->nama_file,
-        //     'sub_total_harga' => $sub_total_harga,
-        //     // 'pesanan_id' => Uuid::uuid4()->toString(),
-        // ]);
-
         Pesanan::create([
             'pesanan_id' => $pesanan_id,
             'jumlah_file' => $jumlah_file,
