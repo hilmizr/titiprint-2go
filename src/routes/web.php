@@ -62,11 +62,20 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/profile', [ProfileController::class, 'updateMember'])->name('profile.updateMember');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/pesan/riwayat', [PesananController::class, 'index'])->name('pesan');
     Route::get('/pesan/create', [PesananController::class, 'create'])->name('pesan.create');
     Route::post('/pesan', [PesananController::class, 'store'])->name('pesan.store');
+    
+    Route::get('/bayar', function () {
+        return Inertia::render('bayar');
+    })->middleware(['auth'])->name('bayar');
+    
+    Route::get('/membayar', function () {
+        return Inertia::render('membayar');
+    });
 });
 
 Route::get('/bayar', function () {
