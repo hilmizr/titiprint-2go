@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('file', function (Blueprint $table) {
+        Schema::create('files', function (Blueprint $table) {
             $table->uuid('file_id')->primary();
             $table->string('nama_file', 255);
             $table->integer('sub_total_harga');
             $table->uuid('pesanan_id');
-            // $table->uuid('user_id');
+            $table->timestamps();
 
-            $table->foreign('pesanan_id')->references('pesanan_id')->on('pesanan');
-            // $table->foreign('user_id')->references('user_id')->on('user');
+            $table->foreign('pesanan_id')->references('pesanan_id')->on('pesanans');
         });
     }
 
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file');
+        Schema::dropIfExists('files');
     }
 };

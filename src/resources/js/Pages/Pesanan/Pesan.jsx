@@ -15,6 +15,25 @@ export default function Pesan({ auth }) {
     //         nama_file: file.nama_file,
     //     });
 
+    const { data, setData, post, processing, errors, reset } = useForm({
+        nama_file: "",
+        format: "",
+        jenis_kertas: "",
+        ukuran_kertas: "",
+        jumlah_copy: "",
+        is_berwarna: "",
+        keterangan: "",
+    });
+
+    const handleOnChange = (event) => {
+        setData(
+            event.target.name,
+            event.target.type === "checkbox"
+                ? event.target.checked
+                : event.target.value
+        );
+    };
+
     const submit = (e) => {
         e.preventDefault();
 
@@ -49,28 +68,44 @@ export default function Pesan({ auth }) {
 
                             <div>
                                 <InputLabel
-                                    htmlFor="url"
-                                    value="File URL"
+                                    htmlFor="nama_file"
+                                    value="URL File"
                                     className="text-neutral-100"
                                 />
-                                <TextInput
-                                    id="url"
+                                <input
+                                    type="text"
+                                    name="nama_file"
+                                    id="nama_file"
                                     className="mt-1 block w-full text-pink-600"
-                                    required
-                                    isFocused
-                                    autoComplete="url"
+                                    value={data.nama_file}
+                                    onChange={handleOnChange}
                                 />
+                                {/* <TextInput
+                                    id="nama_file"
+                                    name="nama_file"
+                                    className="mt-1 block w-full text-pink-600"
+                                    // required
+                                    value={data.nama_file}
+                                    onChange={handleOnChange}
+                                    isFocused
+                                    autoComplete="nama_file"
+                                /> */}
                                 <InputError className="mt-2" />
                             </div>
 
                             <div className="flex justify-between">
                                 <div>
                                     <InputLabel
-                                        htmlFor="format_file"
+                                        htmlFor="format"
                                         value="Format File"
                                         className="text-neutral-100"
                                     />
-                                    <select name="format_file" id="format_file">
+                                    <select
+                                        value={data.format}
+                                        onChange={handleOnChange}
+                                        name="format"
+                                        id="format"
+                                    >
                                         <option value="docx">
                                             Format docx
                                         </option>
@@ -89,6 +124,8 @@ export default function Pesan({ auth }) {
                                         className="text-neutral-100"
                                     />
                                     <select
+                                        value={data.jenis_kertas}
+                                        onChange={handleOnChange}
                                         name="jenis_kertas"
                                         id="jenis_kertas"
                                     >
@@ -110,6 +147,8 @@ export default function Pesan({ auth }) {
                                         className="text-neutral-100"
                                     />
                                     <select
+                                        value={data.ukuran_kertas}
+                                        onChange={handleOnChange}
                                         name="ukuran_kertas"
                                         id="ukuran_kertas"
                                     >
@@ -135,17 +174,19 @@ export default function Pesan({ auth }) {
                                         min="1"
                                         name="jumlah_copy"
                                         id="jumlah_copy"
+                                        value={data.jumlah_copy}
+                                        onChange={handleOnChange}
                                     />
                                     <InputError className="mt-2" />
                                 </div>
 
-                                <div className="ml-24">
+                                <div>
                                     <InputLabel
                                         htmlFor="tinta"
                                         value="Tinta"
                                         className="text-neutral-100"
                                     />
-                                    <input
+                                    {/* <input
                                         type="radio"
                                         id="berwarna"
                                         name="tinta"
@@ -170,15 +211,41 @@ export default function Pesan({ auth }) {
                                     >
                                         &nbsp; Hitam Putih
                                     </label>
-                                    <br></br>
+                                    <br></br> */}
+
+                                    <select
+                                        value={data.is_berwarna}
+                                        onChange={handleOnChange}
+                                        name="is_berwarna"
+                                        id="is_berwarna"
+                                    >
+                                        <option value="hitam_putih">
+                                            Hitam Putih
+                                        </option>
+                                        <option value="berwarna">
+                                            Berwarna
+                                        </option>
+                                    </select>
+
                                     <InputError className="mt-2" />
                                 </div>
 
                                 <div>
-                                    <input type="hidden" name="" />
-                                </div>
-                                <div>
-                                    <input type="hidden" name="" />
+                                    <InputLabel
+                                        htmlFor="keterangan"
+                                        value="Keterangan"
+                                        className="text-neutral-100"
+                                    />
+                                    <TextInput
+                                        id="keterangan"
+                                        name="keterangan"
+                                        className="mt-1 block w-full text-pink-600"
+                                        // required
+                                        value={data.keterangan}
+                                        onChange={handleOnChange}
+                                        isFocused
+                                        // autoComplete="keterangan"
+                                    />
                                 </div>
                             </div>
 

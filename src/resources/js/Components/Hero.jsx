@@ -4,20 +4,27 @@ import styles from "./Hero.module.css";
 
 const Hero = () => {
     return (
-        <section className={`${styles.hero} dark:bg-[#00040A] dark:text-gray-100`}>
+        <section
+            className={`${styles.hero} dark:bg-[#00040A] dark:text-gray-100`}
+        >
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
                 <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-                    <h1 className={`${styles.title} text-5xl font-bold leading-snug sm:text-6xl`}>
+                    <h1
+                        className={`${styles.title} text-5xl font-bold leading-snug sm:text-6xl`}
+                    >
                         Mau Nge-print tapi malas keluar?
                     </h1>
                     <p className={`${styles.subtitle} mt-3 text-3xl sm:mb-8`}>
                         Jangan risau
-                        <span className="dark:text-[#F0007E] font-semibold"> Titiprint aja!</span>
+                        <span className="dark:text-[#F0007E] font-semibold">
+                            {" "}
+                            Titiprint aja!
+                        </span>
                     </p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
                         <a
                             rel="noopener noreferrer"
-                            href="#"
+                            href={route("pesan.create")}
                             className={`${styles.cta} px-8 py-3 text-xl font-semibold rounded dark:bg-[#F0007E] dark:text-gray-900`}
                         >
                             Pesan Jasa
