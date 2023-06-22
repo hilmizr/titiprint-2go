@@ -29,6 +29,20 @@ export default function Membayar({auth}) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                 <div className="p-4 sm:p-8 lg:pt-2 bg-neutral-800 outline outline-4 outline-pink-700 shadow sm:rounded-lg">
                 <form onSubmit={submit} className="mt-6 space-y-6">
+                <div>
+                                <InputLabel
+                                    htmlFor="nama_file"
+                                    value="Kode Pesanan"
+                                    className="text-neutral-100 text-xl mb-4"
+                                />
+                                <input
+                                    type="text"
+                                    name="nama_file"
+                                    id="nama_file"
+                                    className="mt-1 block w-full text-pink-600"
+                                />
+                                <InputError className="mt-2" />
+                            </div>
                     <div>
                                         <InputLabel
                                             htmlFor="metode_pembayaran"
