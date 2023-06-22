@@ -78,4 +78,12 @@ Route::middleware('auth')->group(function () {
     });
 });
 
+Route::get('/bayar', function () {
+    return Inertia::render('bayar');
+})->middleware(['auth'])->name('bayar');
+
+Route::get('/membayar', function () {
+    return Inertia::render('membayar');
+})->middleware(['auth'])->name('membayar');
+
 require __DIR__.'/auth.php';

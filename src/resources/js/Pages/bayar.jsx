@@ -76,6 +76,10 @@ export default function Bayar({auth}) {
                         </li>
                         <li>7. Upload bukti pembayaran</li>
                     </ol> 
+                    <div className="flex mt-5">
+                            <a href={route("membayar")}
+                            class="px-6 py-3 text-blue-100 no-underline bg-pink-600 rounded hover:bg-pink-700 hover:text-blue-200">Verifikasi Pembayaran</a>
+                    </div>
                 </div>
                 
                 </div>
