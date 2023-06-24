@@ -1,11 +1,11 @@
-# Titiprint - Final Project Pemrograman Berbasis Kerangka Kerja 2023 Kelas E
+# Titiprint - Framework-Based Programming Course Final Project (Class E)
 
 ## Anggota Kelompok
 
 <table>
     <tr>
-	    <th>Nama</th>
-      <th>NRP</th>
+	<th>Nama</th>
+      	<th>NRP</th>
     </tr>
     <tr>
         <td>Hilmi Zharfan Rachmadi</td>
@@ -37,10 +37,10 @@ Oleh karena permasalahan di atas, kami mengusulkan aplikasi web TitiPrint yang m
 
 Berikut adalah CDM dan PDM dari Website Titiprint:
 
-## CDM
+## CDM (Conceptual Data Model)
 
 ![CDM_Titiprint](images/CDM_Titiprint.png)
 
-## PDM
+## PDM (Physical Data Model)
 
 ![PDM_Titiprint](images/PDM_Titiprint.png)
